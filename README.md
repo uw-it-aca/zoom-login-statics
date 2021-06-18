@@ -14,8 +14,8 @@ Make sure you have [node.js](https://nodejs.org/en/) installed on your machine b
 Click the Use this template button and clone the repository.
 
 ```
-$ git clone git@github.com:charlon/zoom-error.git
-$ cd zoom-error
+$ git clone git@github.com:uw-it-aca/zoom-login-statics.git
+$ cd zoom-login-statics
 $ npm install
 
 ```
@@ -24,8 +24,12 @@ $ npm install
 $ npm run dev
 ```
 
+You can view the development build here: http://localhost:3000/unauthorized-user/
+
 ### Compiles and minifies for production
-Configure vite.config.js for specific build options
+Configure vite.config.js for specific build options. This produces the final bundle released in production.
 ```
-$ npm run build
+$ docker-compose up --build
 ```
+
+You can preview it here: http://localhost:8000/unauthorized-user
