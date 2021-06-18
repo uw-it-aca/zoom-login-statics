@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  app:
+    environment:
+      PORT: 8000
+    restart: always
+    container_name: app-zoom-static
+    build:
+      context: .
+      target: app-container
+    ports:
+      - "8000:8000"

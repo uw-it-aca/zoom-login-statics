@@ -1,0 +1,72 @@
+autoscaling:
+  enabled: true
+  minReplicas: 1
+  maxReplicas: 2
+
+ingress:
+  enabled: true
+  type: nginx
+  tls:
+    zoom-static:
+      secretName: login.zoom.uw.edu-ingress-cert
+      hosts:
+        - login.zoom.uw.edu
+  hosts:
+    zoom-static:
+      host: login.zoom.uw.edu
+      paths:
+        - "/"
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+
+repo: zoom-login-statics
+instance: prod
+
+resources:
+  limits:
+    cpu: 500m
+    memory: 256Mi
+  requests:
+    cpu: 25m
+    memory: 128Mi
+
+deploymentInitialization:
+  enabled: false
+
+image:
+  repository: gcr.io/uwit-mci-axdd/zoom-login-statics
+  tag: IMAGE_TAG
+
+daemon:
+  enabled: false
+
+database:
+  engine: null
+
+externalService:
+  enabled: false
+
+cronjob:
+  enabled: false
+
+memcached:
+  enabled: false
+
+certs:
+  mounted: false
+
+gcsCredentials:
+  mounted: false
+
+metrics:
+  enabled: true
+
+readiness:
+  enabled: false
+
+lifecycle:
+  enabled: false
+
+environmentVariables:
+  - name: "ENV"
+    value: "prod"
