@@ -8,12 +8,12 @@ ingress:
   type: nginx
   tls:
     zoom-static:
-      secretName: login.zoom.uw.edu-ingress-cert
+      secretName: apps.zoom.uw.edu-ingress-cert
       hosts:
-        - login.zoom.uw.edu
+        - apps.zoom.uw.edu
   hosts:
     zoom-static:
-      host: login.zoom.uw.edu
+      host: apps.zoom.uw.edu
       paths:
         - "/"
   annotations:
