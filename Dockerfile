@@ -11,7 +11,9 @@ RUN apt-get update -y && \
     dumb-init \
     wget \
     python3-venv \
-    nginx
+    nginx \
+    nodejs \
+    npm
 
 RUN python3 -m venv /app/
 RUN . /app/bin/activate && \
@@ -39,6 +41,15 @@ RUN mkdir /var/run/supervisor && chown -R acait:acait /var/run/supervisor && \
     chgrp acait /etc/nginx/nginx.conf && chmod g+w /etc/nginx/nginx.conf
 
 USER acait
+
+COPY --chown=acait:acait index.html package.json vite.config.js /app/
+COPY --chown=acait:acait src /app/src
+
+RUN . /app/bin/activate &&\
+    pip install nodeenv && nodeenv -p &&\
+    npm install npm@latest &&\
+    npm install vite &&\
+    npm run build
 
 ENV PORT 8000
 ENV ENV localdev
