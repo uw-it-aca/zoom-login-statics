@@ -1,4 +1,5 @@
 FROM ubuntu:18.04 as app-container
+
 WORKDIR /app/
 ENV PYTHONUNBUFFERED 1
 ENV LOG_FILE stdout
