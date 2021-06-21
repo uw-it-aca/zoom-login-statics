@@ -30,6 +30,13 @@ resources:
     cpu: 25m
     memory: 128Mi
 
+service:
+  enabled: true
+  ports:
+    - port: 9100
+      targetPort: 9100
+      name: metrics
+
 deploymentInitialization:
   enabled: false
 
@@ -60,6 +67,9 @@ gcsCredentials:
 
 metrics:
   enabled: true
+  serviceMonitor:
+    enabled: true
+    port: metrics
 
 readiness:
   enabled: false
