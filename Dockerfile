@@ -22,6 +22,10 @@ RUN . /app/bin/activate && \
     python get-pip.py && \
     pip3 install --upgrade pip
 
+RUN wget https://github.com/nginxinc/nginx-prometheus-exporter/releases/download/v0.9.0/nginx-prometheus-exporter_0.9.0_linux_386.tar.gz && \
+    tar -xf nginx-prometheus-exporter_0.9.0_linux_386.tar.gz && \
+    mv nginx-prometheus-exporter /usr/local/bin
+
 RUN . /app/bin/activate && pip install supervisor
 RUN mkdir /scripts
 
