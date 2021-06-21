@@ -33,6 +33,9 @@ resources:
 service:
   enabled: true
   ports:
+    - port: 80
+      targetPort: 8000
+      name: http
     - port: 9113
       targetPort: 9113
       name: metrics
