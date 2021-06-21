@@ -33,8 +33,8 @@ resources:
 service:
   enabled: true
   ports:
-    - port: 9100
-      targetPort: 9100
+    - port: 9113
+      targetPort: 9113
       name: metrics
 
 deploymentInitialization:
