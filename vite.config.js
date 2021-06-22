@@ -10,7 +10,7 @@ export default defineConfig({
         nested: resolve(__dirname, 'unauthorized-user/index.html')
       }
     },
-    // creates a static directory in /dist/zoom/assets
-    assetsDir: 'zoom/assets'
+    // creates a static directory /dist/assets
+    assetsDir: 'assets'
   }
 })
