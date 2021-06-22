@@ -10,7 +10,5 @@ export default defineConfig({
         nested: resolve(__dirname, 'unauthorized-user/index.html')
       }
     },
-    // creates a static directory /dist/assets
-    assetsDir: 'assets'
   }
 })
