@@ -22,6 +22,10 @@ RUN . /app/bin/activate && \
     python get-pip.py && \
     pip3 install --upgrade pip
 
+RUN wget https://github.com/nginxinc/nginx-prometheus-exporter/releases/download/v0.9.0/nginx-prometheus-exporter_0.9.0_linux_386.tar.gz && \
+    tar -xf nginx-prometheus-exporter_0.9.0_linux_386.tar.gz && \
+    mv nginx-prometheus-exporter /usr/local/bin
+
 RUN . /app/bin/activate && pip install supervisor
 RUN mkdir /scripts
 
@@ -30,16 +34,17 @@ ADD docker/nginx.conf /etc/nginx/nginx.conf
 ADD docker/start.sh /scripts
 
 RUN groupadd -r acait -g 1000 && \
-    useradd -u 1000 -rm -g acait -d /home/acait -s /bin/bash -c "container user" acait &&\
-    chown -R acait:acait /app &&\
-    chown -R acait:acait /home/acait &&\
+    useradd -u 1000 -rm -g acait -d /home/acait -s /bin/bash -c "container user" acait && \
+    chown -R acait:acait /app && \
+    chown -R acait:acait /home/acait && \
     chmod -R +x /scripts
 
 RUN mkdir /var/run/supervisor && chown -R acait:acait /var/run/supervisor && \
     mkdir /var/run/nginx && chown -R acait:acait /var/run/nginx && \
     chown -R acait:acait /var/lib/nginx && \
     chown -R acait:acait /var/log/nginx && \
-    chgrp acait /etc/nginx/nginx.conf && chmod g+w /etc/nginx/nginx.conf
+    chgrp acait /etc/nginx/nginx.conf && chmod g+w /etc/nginx/nginx.conf && \
+    rm /etc/nginx/sites-enabled/default
 
 USER acait
 
