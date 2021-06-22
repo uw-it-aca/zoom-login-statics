@@ -43,8 +43,7 @@ RUN mkdir /var/run/supervisor && chown -R acait:acait /var/run/supervisor && \
     mkdir /var/run/nginx && chown -R acait:acait /var/run/nginx && \
     chown -R acait:acait /var/lib/nginx && \
     chown -R acait:acait /var/log/nginx && \
-    chgrp acait /etc/nginx/nginx.conf && chmod g+w /etc/nginx/nginx.conf && \
-    rm /etc/nginx/sites-enabled/default && rm /var/www/html/*
+    chgrp acait /etc/nginx/nginx.conf && chmod g+w /etc/nginx/nginx.conf
 
 USER acait
 
