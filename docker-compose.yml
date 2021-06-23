@@ -10,4 +10,4 @@ services:
       context: .
       target: app-container
     ports:
-      - "8000:8000"
+      - "${RUNSERVER_PORT:-8000}:8000"

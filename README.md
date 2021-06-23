@@ -27,8 +27,14 @@ You can view the development build here: http://localhost:3000/unauthorized-user
 ### Preview for production
 Configure vite.config.js for specific build options. This produces the final bundle released in production. The app container is built and deployed via Docker using an Nginx web server.
 
+#### Default port
 ```
 $ docker-compose up --build
 ```
-
 You can preview it here: http://localhost:8000/unauthorized-user/
+
+#### Custom port
+```
+$ RUNSERVER_PORT=8006 docker-compose up --build
+```
+You can preview it here: http://localhost:8006/unauthorized-user/
