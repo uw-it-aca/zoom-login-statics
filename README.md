@@ -34,6 +34,9 @@ $ docker-compose up --build
 You can preview it here: http://localhost:8000/unauthorized-user/
 
 #### Custom port
+
+Specify a different port number to be used by the Docker container in the case that port :8000 is already being used by another application. Port :8006 is used as an example.
+
 ```
 $ RUNSERVER_PORT=8006 docker-compose up --build
 ```
