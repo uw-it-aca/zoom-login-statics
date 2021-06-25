@@ -78,7 +78,7 @@ readiness:
   enabled: false
 
 lifecycle:
-  enabled: false
+  enabled: true
 
 environmentVariables:
   - name: "ENV"
