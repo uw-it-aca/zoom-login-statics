@@ -11,7 +11,7 @@ body {
 }
 
 html {
-  background: url("/src/uw-background.jpeg")
+  background: url("/img/uw-background.jpeg")
     no-repeat top;
   -webkit-background-size: cover;
   -moz-background-size: cover;
