@@ -43,10 +43,6 @@ service:
 deploymentInitialization:
   enabled: false
 
-image:
-  repository: gcr.io/uwit-mci-axdd/zoom-login-statics
-  tag: IMAGE_TAG
-
 daemon:
   enabled: false
 
