@@ -1,4 +1,4 @@
-FROM us-docker.pkg.dev/uwit-mci-axdd/containers/nginx-container:1.1.0 as app-container
+FROM us-docker.pkg.dev/uwit-mci-axdd/containers/nginx-container:1.1.1 as app-container
 
 USER acait
 
