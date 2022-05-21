@@ -1,5 +1,9 @@
 FROM us-docker.pkg.dev/uwit-mci-axdd/containers/nginx-container:1.1.2 as app-container
 
+USER root
+
+COPY docker/locations.conf /etc/nginx/includes/locations.conf
+
 USER acait
 
 COPY --chown=acait:acait index.html package.json vite.config.js /app/
