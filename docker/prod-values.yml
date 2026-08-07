@@ -23,7 +23,6 @@ repo: zoom-login-statics
 instance: prod
 namespace:
   enabled: true
-  name: zoom-utilities-prod
 
 resources:
   limits:
