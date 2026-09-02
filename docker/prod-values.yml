@@ -19,6 +19,12 @@ ingress:
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt
 
+gateway:
+  enabled: true
+  hostnames:
+    - login.zoom.uw.edu
+  maxRequestSize: 256Ki
+
 repo: zoom-login-statics
 instance: prod
 namespace:
